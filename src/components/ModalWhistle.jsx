@@ -23,7 +23,7 @@ export default function ModalWhistle({ buttonText }) {
 
   return (
     <div>
-      <div className="bg-blue-700 m-10 hover:bg-blue-500 text-white font-bold py-2 px-4 border border-blue-700 rounded " onClick={handleOpen}>
+      <div className="button-container bg-blue-700 m-10 hover:bg-blue-500 text-white font-bold py-2 px-4 border border-blue-700" onClick={handleOpen}>
         {buttonText}
       </div>
       <Modal
