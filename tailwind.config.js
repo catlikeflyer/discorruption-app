@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        title: ["Orbitron", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        title: ["Syne Mono", "monospace"],
+        body: ["Montserrat", "sans-serif"],
       },
     },
   },
