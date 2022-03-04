@@ -9,24 +9,32 @@
 // Correo Opcional
 
 import React from "react";
-import { TextField } from "@mui/material";
+import {
+  TextField,
+  FormControlLabel,
+  FormGroup,
+  Checkbox,
+} from "@mui/material";
 import Stack from "@mui/material/Stack";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 
 export default function DataForm() {
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const handleDateChange = (newValue) => {
+    setDateValue(newValue);
     console.log(newValue);
   };
 
-  const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
+  const [dateValue, setDateValue] = React.useState(
+    new Date("2014-08-18T21:11:54")
+  );
+  const [anonymous, setAnonymous] = React.useState(true);
 
   return (
     <div className="flex flex-col">
       <h1>Datos del denunciante</h1>
-      <div className="flex flex-col md:flex-row">
+      <div className="input-box">
         <TextField
           id="outlined-basic"
           label="Lugar"
@@ -38,13 +46,35 @@ export default function DataForm() {
             <DesktopDatePicker
               label="Date desktop"
               inputFormat="MM/dd/yyyy"
-              value={value}
-              onChange={handleChange}
+              value={dateValue}
+              onChange={handleDateChange}
               renderInput={(params) => <TextField {...params} />}
             />
           </Stack>
         </LocalizationProvider>
       </div>
+      <div className="input-box">
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label="Anonimo"
+            checked={anonymous}
+            onChange={() => setAnonymous(!anonymous)}
+          />
+        </FormGroup>
+      </div>
+      {!anonymous && (
+        <div className="input-box">
+          <TextField
+            id="outlined-basic"
+            label="Nombre"
+            variant="outlined"
+            sx={{ marginRight: 2 }}
+          />
+        </div>
+      )}
+      <div className="input-box">
+          </div>
     </div>
   );
 }
