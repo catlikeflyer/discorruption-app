@@ -21,11 +21,11 @@ const NavItem = ({ pointsTo, text }) => (
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
 
-  const navItemsList = ["Inicio", "Denuncia", "Sopla", "Soporte"];
+  const navItemsList = ["Inicio", "Denuncia", "Soporte"];
 
   return (
     <div>
-      <nav className="fixed w-full md:flex justify-between p-4 z-50 bg-[#132C33] h-16">
+      <nav className="fixed w-full md:flex justify-between p-4 z-50 bg-black h-16">
         <div className="hidden md:flex flex-col md:flex-row md:items-end text-white mr-10 justify-start md:justify-end">
           <h1 className="font-title text-2xl">Metawhistle</h1>
         </div>
