@@ -95,7 +95,7 @@ export default function FileForm({
           fullWidth
         />
       </div>
-      <Button color="alert" onClick={onSubmitClick} disabled={disabled}>
+      <Button color="primary" onClick={onSubmitClick} disabled={disabled}>
         Denunciar
       </Button>
     </div>
