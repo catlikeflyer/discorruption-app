@@ -5,6 +5,11 @@ export default function FileForm({ globalState, setGlobalState, pos, setPos }) {
   const [fileError, setFileError] = React.useState(false);
   const [fileURL, setFileURL] = React.useState(null);
   const [file, setFile] = React.useState();
+  const [email, setEmail] = React.useState("");
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
 
   const onFileChange = async (e) => {
     const file = e.target.files[0];
@@ -59,8 +64,19 @@ export default function FileForm({ globalState, setGlobalState, pos, setPos }) {
           Sube un archivo que evidencie la denuncia
         </label>
       </div>
-      <Button color="primary" onClick={onNextClick}>
-        Siguiente
+      <div className="input-box">
+        <TextField
+          id="outlined-basic"
+          label="Los hechos"
+          variant="outlined"
+          sx={{ marginRight: 2 }}
+          value={email}
+          onChange={handleEmailChange}
+          fullWidth
+        />
+      </div>
+      <Button color="secondary" onClick={onNextClick}>
+        Denunciar
       </Button>
     </div>
   );
