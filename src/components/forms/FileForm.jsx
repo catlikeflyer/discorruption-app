@@ -70,7 +70,7 @@ export default function FileForm({
 
   return (
     <div>
-      <h1 className="text-2xl">Evidencia</h1>
+      <h1 className="text-2xl font-title">Evidencia</h1>
       {fileError && <p className="error text-red-500">Selecciona un archivo</p>}
       <div className="input-box">
         <input

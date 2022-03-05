@@ -5,23 +5,14 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const NavItem = ({ pointsTo, text }) => (
   <div className="cursor-pointer md:mx-4 md:my-2 font-title hover:underline hover:text-xl hover:transition-all">
-    <Link
-      activeClass="active-link"
-      to={pointsTo}
-      spy={true}
-      smooth={true}
-      offset={-70}
-      duration={500}
-    >
-      {text}
-    </Link>
+    <a href={`/${pointsTo}`}>{text}</a>
   </div>
 );
 
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
 
-  const navItemsList = ["Inicio", "Denuncia", "Soporte"];
+  const navItemsList = ["Inicio", "Denuncias", "Soporte"];
 
   return (
     <div>
@@ -62,9 +53,7 @@ export default function Navbar() {
         )}
         
       </nav>
-      
       <div className="h-16"></div>
-      
     </div>
   );
 }

@@ -93,7 +93,7 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-2xl">Datos importantes</h1>
+      <h1 className="text-2xl font-title">Datos importantes</h1>
       <div className="input-box">
         <TextField
           id="outlined-basic"

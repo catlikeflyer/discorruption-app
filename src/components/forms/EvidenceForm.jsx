@@ -36,7 +36,7 @@ export default function EvidenceForm({
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-2xl">Descripción</h1>
+      <h1 className="text-2xl font-title">Descripción</h1>
       <div className="input-box">
         <TextField
           id="outlined-basic"
