@@ -21,9 +21,16 @@ export default function ModalWhistle({ buttonText }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // Local scope states
+  const [pos, setPos] = React.useState(1);
+  const [globalState, setGlobalState] = React.useState({});
+
   return (
     <div>
-      <div className="button-container bg-blue-700 m-10 hover:bg-blue-500 text-white font-bold py-2 px-4 border border-blue-700" onClick={handleOpen}>
+      <div
+        className="button-container bg-blue-700 m-10 hover:bg-blue-500 text-white font-bold py-2 px-4 border border-blue-700"
+        onClick={handleOpen}
+      >
         {buttonText}
       </div>
       <Modal
@@ -33,7 +40,15 @@ export default function ModalWhistle({ buttonText }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <DataForm />
+          {(pos === 1) && (
+            <DataForm
+              pos={pos}
+              setPos={setPos}
+              globalState={globalState}
+              setGlobalState={setGlobalState}
+            />
+          )}
+          {(pos === 2) && ( "works")}
         </Box>
       </Modal>
     </div>
