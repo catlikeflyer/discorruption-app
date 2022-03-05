@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { TextField, Button } from "@mui/material";
+import {
+  TextField,
+  Button,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
 import { pFirestore, pStorage } from "../../firebase/firebaseConfig";
 
 export default function FileForm({
@@ -15,6 +21,7 @@ export default function FileForm({
   const [file, setFile] = React.useState();
   const [email, setEmail] = React.useState(null);
   const [disabled, setDisabled] = React.useState(true);
+  const [fileNotHave, setFileNotHave] = React.useState(false);
 
   const types = ["image/png", "image/jpeg", "image/jpg", "*"];
 
@@ -39,6 +46,15 @@ export default function FileForm({
     } else {
       setError("Invalid file type");
       console.log(error);
+    }
+  };
+
+  const handleFileHaveChange = (event) => {
+    setFileNotHave(!fileNotHave);
+    if (!fileNotHave) {
+      setFileURL(
+        "https://firebasestorage.googleapis.com/v0/b/discorrupti.appspot.com/o/arm.png?alt=media&token=415ffa68-ae59-495f-b574-53436bd0f351"
+      );
     }
   };
 
@@ -71,19 +87,30 @@ export default function FileForm({
   return (
     <div>
       <h1 className="text-2xl font-title">Evidencia</h1>
-      {fileError && <p className="error text-red-500">Selecciona un archivo</p>}
       <div className="input-box">
-        <input
-          accept="image/*"
-          type="file"
-          onChange={onFileChange}
-          id="raised-button-file"
-          error={fileError}
-        />
-        <label htmlFor="raised-button-file">
-          Sube un archivo que evidencie la denuncia
-        </label>
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox checked={fileNotHave} />}
+            label="No tengo evidencia"
+            onChange={handleFileHaveChange}
+          />
+        </FormGroup>
       </div>
+      {fileError && <p className="error text-red-500">Selecciona un archivo</p>}
+      {!fileNotHave && (
+        <div className="input-box">
+          <input
+            accept="image/*"
+            type="file"
+            onChange={onFileChange}
+            id="raised-button-file"
+            error={fileError}
+          />
+          <label htmlFor="raised-button-file">
+            Sube un archivo que evidencie la denuncia
+          </label>
+        </div>
+      )}
       <div className="input-box">
         <TextField
           id="outlined-basic"
@@ -95,7 +122,7 @@ export default function FileForm({
           fullWidth
         />
       </div>
-      <Button color="primary" onClick={onSubmitClick} disabled={disabled}>
+      <Button color="primary" onClick={onSubmitClick}>
         Denunciar
       </Button>
     </div>
