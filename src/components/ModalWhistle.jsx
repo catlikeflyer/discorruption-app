@@ -5,6 +5,7 @@ import DataForm from "./forms/DataForm";
 import EvidenceForm from "./forms/EvidenceForm";
 import FileForm from "./forms/FileForm";
 import Receipt from "./Receipt";
+import Privacy from "./forms/Privacy";
 
 const style = {
   position: "absolute",
@@ -24,54 +25,55 @@ export default function ModalWhistle({ buttonText }) {
   const handleClose = () => setOpen(false);
 
   // Local scope states
-  const [pos, setPos] = React.useState(1);
+  const [pos, setPos] = React.useState(0);
   const [globalState, setGlobalState] = React.useState({});
   const [lastid, setLastid] = React.useState("");
 
   return (
-      <div>
-        <div
-          className="button-container white-glassmorphism m-1font-bold py-2 px-4 hidden md:block"
-          onClick={handleOpen}
-        >
-          {buttonText}
-        </div>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style} className="md:w-2/3 w-screen">
-            {pos === 1 && (
-              <DataForm
-                pos={pos}
-                setPos={setPos}
-                globalState={globalState}
-                setGlobalState={setGlobalState}
-              />
-            )}
-            {pos === 2 && (
-              <EvidenceForm
-                pos={pos}
-                setPos={setPos}
-                globalState={globalState}
-                setGlobalState={setGlobalState}
-              />
-            )}
-            {pos === 3 && (
-              <FileForm
-                pos={pos}
-                setPos={setPos}
-                globalState={globalState}
-                setGlobalState={setGlobalState}
-                setLastid={setLastid}
-                lastid={lastid}
-              />
-            )}
-            {pos === 4 && <Receipt lastid={lastid} />}
-          </Box>
-        </Modal>
+    <div>
+      <div
+        className="button-container white-glassmorphism m-1font-bold py-2 px-4 hidden md:block"
+        onClick={handleOpen}
+      >
+        {buttonText}
       </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} className="md:w-2/3 w-screen">
+          {pos === 0 && <Privacy pos={pos} setPos={setPos} />}
+          {pos === 1 && (
+            <DataForm
+              pos={pos}
+              setPos={setPos}
+              globalState={globalState}
+              setGlobalState={setGlobalState}
+            />
+          )}
+          {pos === 2 && (
+            <EvidenceForm
+              pos={pos}
+              setPos={setPos}
+              globalState={globalState}
+              setGlobalState={setGlobalState}
+            />
+          )}
+          {pos === 3 && (
+            <FileForm
+              pos={pos}
+              setPos={setPos}
+              globalState={globalState}
+              setGlobalState={setGlobalState}
+              setLastid={setLastid}
+              lastid={lastid}
+            />
+          )}
+          {pos === 4 && <Receipt lastid={lastid} />}
+        </Box>
+      </Modal>
+    </div>
   );
 }
