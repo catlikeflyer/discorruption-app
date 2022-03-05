@@ -18,7 +18,7 @@ export default function EvidenceForm({
   setPos,
 }) {
   // Data states
-  const [desc, setDesc] = React.useState("");
+  const [desc, setDesc] = React.useState(null);
 
   // Error states
   const [descError, setDescError] = React.useState(false);
@@ -59,6 +59,7 @@ export default function EvidenceForm({
           multiline
           rows={10}
           fullWidth
+          required
         />
       </div>
       <Button color="primary" onClick={onNextClick}>

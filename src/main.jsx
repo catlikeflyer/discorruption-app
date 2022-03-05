@@ -1,11 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as Context from "./context/DataContext";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+  <Context.DataProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+    ,
+  </Context.DataProvider>,
+  document.getElementById("root")
+);

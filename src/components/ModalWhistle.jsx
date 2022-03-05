@@ -66,6 +66,9 @@ export default function ModalWhistle({ buttonText }) {
               setGlobalState={setGlobalState}
             />
           )}
+          {pos === 4 && (
+            "Finalizado"
+          )}
         </Box>
       </Modal>
     </div>

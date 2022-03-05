@@ -30,22 +30,18 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
   const [dateValue, setDateValue] = React.useState(
     new Date("2022-08-18T21:11:54")
   );
-  const [anonymous, setAnonymous] = React.useState();
-  const [gender, setGender] = React.useState();
-  const [esc, setEsc] = React.useState();
-  const [place, setPlace] = React.useState();
-  const [denounced, setDenounced] = React.useState();
-  const [occ, setOcc] = React.useState();
-  const [name, setName] = React.useState();
+  const [anonymous, setAnonymous] = React.useState(true);
+  const [gender, setGender] = React.useState(null);
+  const [esc, setEsc] = React.useState(null);
+  const [place, setPlace] = React.useState(null);
+  const [denounced, setDenounced] = React.useState(null);
+  const [occ, setOcc] = React.useState(null);
+  const [name, setName] = React.useState(null);
 
   // Error states
   const [dateError, setDateError] = React.useState(false);
   const [placeError, setPlaceError] = React.useState(false);
   const [denouncedError, setDenouncedError] = React.useState(false);
-  const [anonymousError, setAnonymousError] = React.useState(false);
-  const [genderError, setGenderError] = React.useState(false);
-  const [escError, setEscError] = React.useState(false);
-  const [occError, setOccError] = React.useState(false);
 
   const handleDateChange = (newValue) => {
     setDateValue(newValue);
