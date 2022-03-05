@@ -31,7 +31,7 @@ export default function ModalWhistle({ buttonText }) {
   return (
       <div>
         <div
-          className="button-container bg-blue-700 m-10 hover:bg-blue-500 text-white font-bold py-2 px-4 border border-blue-700 hidden md:block"
+          className="button-container white-glassmorphism m-1font-bold py-2 px-4 hidden md:block"
           onClick={handleOpen}
         >
           {buttonText}

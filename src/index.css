@@ -1,24 +1,23 @@
-.blue-glassmorphism {
-  background: rgb(39, 51, 89, 0.4);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-/* white glassmorphism */
-.white-glassmorphism {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
 @layer components {
+  .blue-glassmorphism {
+    background: rgb(39, 51, 89, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  
+  /* white glassmorphism */
+  .white-glassmorphism {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
     .button-container {
-        @apply shadow-xl rounded-xl hover:rounded-full bg-blue-800 text-white hover:bg-blue-900 
+        @apply shadow-xl rounded-xl hover:rounded-full text-white white-glassmorphism hover:blue-glassmorphism
         cursor-pointer m-2 p-2; 
     }
     .input-box {
