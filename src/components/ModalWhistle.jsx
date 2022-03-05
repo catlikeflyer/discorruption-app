@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import DataForm from "./forms/DataForm";
 import EvidenceForm from "./forms/EvidenceForm";
 import FileForm from "./forms/FileForm";
+import Receipt from "./Receipt";
 
 const style = {
   position: "absolute",
@@ -26,6 +27,7 @@ export default function ModalWhistle({ buttonText }) {
   // Local scope states
   const [pos, setPos] = React.useState(1);
   const [globalState, setGlobalState] = React.useState({});
+  const [lastid, setLastid] = React.useState("");
 
   return (
     <div>
@@ -64,11 +66,11 @@ export default function ModalWhistle({ buttonText }) {
               setPos={setPos}
               globalState={globalState}
               setGlobalState={setGlobalState}
+              setLastid={setLastid}
+              lastid={lastid}
             />
           )}
-          {pos === 4 && (
-            "Finalizado"
-          )}
+          {pos === 4 && <Receipt lastid={lastid} />}
         </Box>
       </Modal>
     </div>

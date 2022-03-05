@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextField, Button } from "@mui/material";
-import { pFirestore, pStorage, timestamp } from "../../firebase/firebaseConfig";
+import { pFirestore, pStorage } from "../../firebase/firebaseConfig";
 
-export default function FileForm({ globalState, setGlobalState, pos, setPos }) {
+export default function FileForm({
+  globalState,
+  setGlobalState,
+  pos,
+  setPos,
+  setLastid,
+  lastid,
+}) {
   const [fileError, setFileError] = React.useState(false);
   const [fileURL, setFileURL] = React.useState(null);
   const [file, setFile] = React.useState();
@@ -35,7 +42,13 @@ export default function FileForm({ globalState, setGlobalState, pos, setPos }) {
     }
   };
 
-  const onSubmitClick = (e) => {
+  async function addDenuncia(denuncia) {
+    const newDenuncia = await pFirestore.collection("denuncias").add(denuncia);
+    setLastid(newDenuncia.id);
+    console.log(newDenuncia.id);
+  }
+
+  const onSubmitClick = async (e) => {
     e.preventDefault();
 
     const pushState = {
@@ -45,14 +58,11 @@ export default function FileForm({ globalState, setGlobalState, pos, setPos }) {
     };
 
     if (fileURL) {
-      const collectionRef = pFirestore.collection("denuncias");
-      const date = timestamp();
-      collectionRef.add(pushState);
+      addDenuncia(pushState);
       console.log("added denuncias");
-      console.log(pushState);
-      setGlobalState(pushState);
+      setGlobalState({ ...pushState, lastid });
       setPos(pos + 1);
-      
+      console.log(globalState);
     } else {
       setFileError(true);
     }
