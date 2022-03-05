@@ -142,7 +142,7 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
         </div>
       )}
       <div className="input-box">
-        <FormControl>
+        <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Sexo</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -158,7 +158,7 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
         </FormControl>
       </div>
       <div className="input-box">
-        <FormControl>
+        <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Escolaridad</InputLabel>
           <Select
             labelId="demo-simple-select-label"
