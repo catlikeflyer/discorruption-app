@@ -21,7 +21,7 @@ const NavItem = ({ pointsTo, text }) => (
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
 
-  const navItemsList = ["Inicio", "Denuncia", "Sopla", "Soporte"];
+  const navItemsList = ["Inicio", "Denuncia", "Soporte"];
 
   return (
     <div>
@@ -60,8 +60,11 @@ export default function Navbar() {
             ))}
           </ul>
         )}
+        
       </nav>
+      
       <div className="h-16"></div>
+      
     </div>
   );
 }
