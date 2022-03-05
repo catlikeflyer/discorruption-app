@@ -21,7 +21,7 @@ export default function Denuncias() {
   return (
     <div
       id="denuncias"
-      className="min-h-screen items-start justify-center bg-black"
+      className="min-h-screen items-start justify-center bg-gradient-to-r from-blue-900 to-gray-900"
     >
       <h1 className="text-2xl text-white text-center font-title">Denuncias</h1>
       <div class="pt-2 relative mx-auto text-gray-300">
