@@ -47,16 +47,18 @@ export default function FileForm({ globalState, setGlobalState, pos, setPos }) {
     <div>
       <h1 className="text-2xl">Evidencia</h1>
       {fileError && <p className="error text-red-500">Selecciona un archivo</p>}
-      <input
-        accept="image/*"
-        type="file"
-        onChange={onFileChange}
-        id="raised-button-file"
-        error={fileError}
-      />
-      <label htmlFor="raised-button-file">
-        Sube un archivo que evidencie la denuncia
-      </label>
+      <div className="input-box">
+        <input
+          accept="image/*"
+          type="file"
+          onChange={onFileChange}
+          id="raised-button-file"
+          error={fileError}
+        />
+        <label htmlFor="raised-button-file">
+          Sube un archivo que evidencie la denuncia
+        </label>
+      </div>
       <Button color="primary" onClick={onNextClick}>
         Siguiente
       </Button>
