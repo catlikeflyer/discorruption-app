@@ -17,7 +17,7 @@ export default function Support() {
           </h3>
           <p className=' mb-10'>
           Es un fenómeno social, en el cual existen condiciones sistemáticas de apropiación ilegítima del espacio público para propósitos particulares.
-Es una práctica consistente en la utilización de las funciones y medios de las organizaciones en provecho, económico o de otra índole, de sus gestores.
+          Es una práctica consistente en la utilización de las funciones y medios de las organizaciones en provecho, económico o de otra índole, de sus gestores.
           </p>
           <h3 className="underline md:text-3xl text-xl">
             ¿Qué es la denuncia administrativa?
@@ -46,7 +46,7 @@ Es una práctica consistente en la utilización de las funciones y medios de las
           <h3 className="underline md:text-3xl text-xl">
           ¿Qué debe contener la denuncia?
           </h3>
-          <ul className="list-disc">
+          <ul className="mb-10 list-disc">
             <li>En caso de no ser anónima, los datos de identificación y ubicación del denunciante.</li>
             <li>Nombre y puesto de la servidora o servidor público denunciado.</li>
             <li>En caso de no conocer el nombre y el puesto, hacer una descripción física de la servidora o servidor público denunciado, así como de las funciones que realiza, y del lugar o área de trabajo.</li>
@@ -68,8 +68,6 @@ Es una práctica consistente en la utilización de las funciones y medios de las
           </ul>
           </p>   
           </div>
-         
-        
       </div>
       </div>
     </section>
