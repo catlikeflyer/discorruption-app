@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-scroll";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -22,7 +21,7 @@ export default function Navbar() {
         </div>
         <div className="hidden md:flex flex-col md:flex-row md:items-end text-white mr-10 justify-between md:justify-end">
           {navItemsList.map((item) => (
-            <NavItem pointsTo={item.toLowerCase()} text={item} />
+            <NavItem pointsTo={item.toLowerCase()} text={item} key={item}/>
           ))}
         </div>
         <div className="flex flex-row md:hidden justify-between items-start">
@@ -46,7 +45,7 @@ export default function Navbar() {
             </li>
             {navItemsList.map((item) => (
               <li className="my-2 mx-4">
-                <NavItem pointsTo={`${item.toLowerCase()}`} text={item} />
+                <NavItem pointsTo={`${item.toLowerCase()}`} text={item} key={item}/>
               </li>
             ))}
           </ul>

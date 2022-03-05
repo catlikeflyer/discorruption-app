@@ -5,9 +5,9 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Denuncias from './pages/Denuncias'
+import ScreenWhistle from './components/ScreenWhistle'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
@@ -21,6 +21,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/denuncias" element={<Denuncias />} />
+        </Routes>
+        <Routes>
+          <Route path="/denunciar" element={<ScreenWhistle />} />
         </Routes>
       </Router>
     </div>

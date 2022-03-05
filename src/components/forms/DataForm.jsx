@@ -77,7 +77,7 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
       esc,
       gender,
       occ,
-      name
+      name,
     };
 
     if (dateValue && place && denounced) {
@@ -105,19 +105,21 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
           error={placeError}
           required
         />
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <Stack spacing={3}>
-            <DesktopDatePicker
-              label="Date desktop"
-              inputFormat="MM/dd/yyyy"
-              value={dateValue}
-              onChange={handleDateChange}
-              renderInput={(params) => <TextField {...params} />}
-              error={dateError}
-              required
-            />
-          </Stack>
-        </LocalizationProvider>
+        <div className="md:mt-0 mt-4">
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <Stack spacing={3}>
+              <DesktopDatePicker
+                label="Date desktop"
+                inputFormat="MM/dd/yyyy"
+                value={dateValue}
+                onChange={handleDateChange}
+                renderInput={(params) => <TextField {...params} />}
+                error={dateError}
+                required
+              />
+            </Stack>
+          </LocalizationProvider>
+        </div>
       </div>
       <div className="input-box">
         <FormGroup>
@@ -140,7 +142,7 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
         </div>
       )}
       <div className="input-box">
-        <FormControl fullWidth>
+        <FormControl>
           <InputLabel id="demo-simple-select-label">Sexo</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -156,7 +158,7 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
         </FormControl>
       </div>
       <div className="input-box">
-        <FormControl fullWidth>
+        <FormControl>
           <InputLabel id="demo-simple-select-label">Escolaridad</InputLabel>
           <Select
             labelId="demo-simple-select-label"

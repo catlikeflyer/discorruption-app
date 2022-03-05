@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import DataForm from "./forms/DataForm";
 import EvidenceForm from "./forms/EvidenceForm";
@@ -30,49 +29,49 @@ export default function ModalWhistle({ buttonText }) {
   const [lastid, setLastid] = React.useState("");
 
   return (
-    <div>
-      <div
-        className="button-container bg-blue-700 m-10 hover:bg-blue-500 text-white font-bold py-2 px-4 border border-blue-700"
-        onClick={handleOpen}
-      >
-        {buttonText}
+      <div>
+        <div
+          className="button-container bg-blue-700 m-10 hover:bg-blue-500 text-white font-bold py-2 px-4 border border-blue-700 hidden md:block"
+          onClick={handleOpen}
+        >
+          {buttonText}
+        </div>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style} className="md:w-2/3 w-screen">
+            {pos === 1 && (
+              <DataForm
+                pos={pos}
+                setPos={setPos}
+                globalState={globalState}
+                setGlobalState={setGlobalState}
+              />
+            )}
+            {pos === 2 && (
+              <EvidenceForm
+                pos={pos}
+                setPos={setPos}
+                globalState={globalState}
+                setGlobalState={setGlobalState}
+              />
+            )}
+            {pos === 3 && (
+              <FileForm
+                pos={pos}
+                setPos={setPos}
+                globalState={globalState}
+                setGlobalState={setGlobalState}
+                setLastid={setLastid}
+                lastid={lastid}
+              />
+            )}
+            {pos === 4 && <Receipt lastid={lastid} />}
+          </Box>
+        </Modal>
       </div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          {pos === 1 && (
-            <DataForm
-              pos={pos}
-              setPos={setPos}
-              globalState={globalState}
-              setGlobalState={setGlobalState}
-            />
-          )}
-          {pos === 2 && (
-            <EvidenceForm
-              pos={pos}
-              setPos={setPos}
-              globalState={globalState}
-              setGlobalState={setGlobalState}
-            />
-          )}
-          {pos === 3 && (
-            <FileForm
-              pos={pos}
-              setPos={setPos}
-              globalState={globalState}
-              setGlobalState={setGlobalState}
-              setLastid={setLastid}
-              lastid={lastid}
-            />
-          )}
-          {pos === 4 && <Receipt lastid={lastid} />}
-        </Box>
-      </Modal>
-    </div>
   );
 }
