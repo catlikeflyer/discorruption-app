@@ -17,13 +17,13 @@
 }
 
 @layer components {
-    .button-container {
-        @apply shadow-xl rounded-xl hover:rounded-full bg-blue-800 text-white hover:bg-blue-900 
-        cursor-pointer m-2 p-2; 
-    }
-    .input-box {
-        @apply flex flex-col md:flex-row m-2
-    }
+  .button-container {
+    @apply shadow-xl rounded-xl hover:rounded-full bg-blue-800 text-white hover:bg-blue-900 
+        cursor-pointer m-2 p-2;
+  }
+  .input-box {
+    @apply flex flex-col md:flex-row m-2;
+  }
 }
 
 @tailwind base;
