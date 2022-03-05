@@ -18,6 +18,7 @@ import {
   Select,
   MenuItem,
   FormControl,
+  Button,
 } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
@@ -36,8 +37,6 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
   const [denounced, setDenounced] = React.useState();
   const [occ, setOcc] = React.useState();
   const [name, setName] = React.useState();
-
-  const [full, setFull] = React.useState(false);
 
   // Error states
   const [dateError, setDateError] = React.useState(false);
@@ -72,41 +71,6 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
 
   const onNextClick = (e) => {
     e.preventDefault();
-    if (dateValue === "") {
-      setDateError(true);
-    } else {
-      setDateError(false);
-    }
-    if (place === "") {
-      setPlaceError(true);
-    } else {
-      setPlaceError(false);
-    }
-    if (denounced === "") {
-      setDenouncedError(true);
-    } else {
-      setDenouncedError(false);
-    }
-    if (anonymous === "") {
-      setAnonymousError(true);
-    } else {
-      setAnonymousError(false);
-    }
-    if (esc === "") {
-      setEscError(true);
-    } else {
-      setEscError(false);
-    }
-    if (gender === "") {
-      setGenderError(true);
-    } else {
-      setGenderError(false);
-    }
-    if (occ === "") {
-      setOccError(true);
-    } else {
-      setOccError(false);
-    }
 
     const pushState = {
       ...globalState,
@@ -117,13 +81,17 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
       esc,
       gender,
       occ,
+      name
     };
 
-    if (!dateError || !placeError || !denouncedError) {
+    if (dateValue && place && denounced) {
       console.log(pushState);
-      setFull(true);
       setGlobalState(pushState);
       setPos(pos + 1);
+    } else {
+      setDateError(true);
+      setPlaceError(true);
+      setDenouncedError(true);
     }
   };
 
@@ -139,6 +107,7 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
           value={place}
           onChange={handlePlaceChange}
           error={placeError}
+          required
         />
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Stack spacing={3}>
@@ -149,6 +118,7 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
               onChange={handleDateChange}
               renderInput={(params) => <TextField {...params} />}
               error={dateError}
+              required
             />
           </Stack>
         </LocalizationProvider>
@@ -225,11 +195,12 @@ export default function DataForm({ globalState, setGlobalState, pos, setPos }) {
           value={denounced}
           onChange={handleDenouncedChange}
           error={denouncedError}
+          required
         />
       </div>
-      <button disabled={full} onClick={onNextClick}>
-        next
-      </button>
+      <Button color="primary" onClick={onNextClick}>
+        Siguiente
+      </Button>
     </div>
   );
 }

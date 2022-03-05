@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import DataForm from "./forms/DataForm";
+import EvidenceForm from "./forms/EvidenceForm";
+import FileForm from "./forms/FileForm";
 
 const style = {
   position: "absolute",
@@ -40,7 +42,7 @@ export default function ModalWhistle({ buttonText }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {(pos === 1) && (
+          {pos === 1 && (
             <DataForm
               pos={pos}
               setPos={setPos}
@@ -48,7 +50,22 @@ export default function ModalWhistle({ buttonText }) {
               setGlobalState={setGlobalState}
             />
           )}
-          {(pos === 2) && ( "works")}
+          {pos === 2 && (
+            <EvidenceForm
+              pos={pos}
+              setPos={setPos}
+              globalState={globalState}
+              setGlobalState={setGlobalState}
+            />
+          )}
+          {pos === 3 && (
+            <FileForm
+              pos={pos}
+              setPos={setPos}
+              globalState={globalState}
+              setGlobalState={setGlobalState}
+            />
+          )}
         </Box>
       </Modal>
     </div>
