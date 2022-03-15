@@ -7,7 +7,10 @@ export default function Receipt({ lastid, globalState }) {
         <h1 className="text-2xl">Recibo</h1>
         {lastid && (
           <p>
-            Sigue la denuncia con el siguiente folio: <span>{lastid}</span>
+            Gracias por tu valentía.<br />
+            Puedes seguir la evolución de tu denuncia con el siguiente folio: <span>{lastid}</span>.
+            <br />
+            Tu denuncia será procesada con las autoridades correspondientes.
           </p>
         )}
         <div
